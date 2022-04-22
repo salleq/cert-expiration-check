@@ -20,7 +20,15 @@ now=$(date +%s)
 
 # ######
 # )
-readarray -t domains < ./cert-domains
+
+if [ -z "$2" ]
+then
+	readarray -t domains < ./cert-domains
+else
+	domains=(
+	$2
+	)
+fi
 
 for i in "${domains[@]}"
 
