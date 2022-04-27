@@ -14,9 +14,9 @@ You can change the output from default json to colored text to run it manually w
 ./certcheck.sh -txt
 ```
 
-You can also override the domains file and just check a single domain with two arguments
+You can also override the domains file and just check some domains with -txt and wanted domains as arguments
 ```console
-./certcheck.sh -txt somedomain.com
+./certcheck.sh -txt somedomain.com someotherdomain.com
 ```
 
 Note that you need to have both arguments (format and domain) when overriding the list file.
