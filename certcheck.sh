@@ -26,7 +26,7 @@ then
 	readarray -t domains < ./cert-domains
 else
 	domains=(
-	$2
+	"${@:2}"	
 	)
 fi
 
@@ -58,8 +58,11 @@ echo -e '{"domain":"'$i'","days":"'$(($difference/(3600*24)))'"}'
 
 elif [[ $format = "-txt" ]];
 then
-echo -e ${color}$i'\t'$(($difference/(3600*24)))
+alldomains+=$(echo -e ${color}$i','$(($difference/(3600*24))) days','$expiration)
+alldomains+=\\n
 
 fi
 
 done
+
+echo -e "$alldomains" | column -t -s ,
