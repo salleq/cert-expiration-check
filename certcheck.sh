@@ -65,4 +65,4 @@ fi
 
 done
 
-echo -e "$alldomains" | column -t -s ,
+echo -e "$alldomains"| column -t -s ,|sort -k2n
